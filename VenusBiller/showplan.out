@@ -1,0 +1,100 @@
+
+
+
+--- temp query ---
+
+- Inputs to Query -
+Table 'xxsalesreturnitem'
+    Using index 'billno'
+    Having Indexes:
+    billno 1 entrie, 1 page, 1 value
+      which has 1 column, fixed
+- End inputs to Query -
+
+01) Scan table 'xxsalesreturnitem'
+    Using index 'billno'
+
+
+
+--- temp query ---
+
+- Inputs to Query -
+Table 'xxsalesreturnitem'
+- End inputs to Query -
+
+01) Scan table 'xxsalesreturnitem'
+
+
+
+--- temp query ---
+
+- Inputs to Query -
+Table 'stock'
+    Using index 'ITEMCODE'
+    Having Indexes:
+    ITEMCODE 224 entries, 4 pages, 224 values
+      which has 1 column, fixed, unique
+- End inputs to Query -
+
+01) Scan table 'stock'
+    Using index 'ITEMCODE'
+02) Update
+
+
+--- temp query ---
+
+- Inputs to Query -
+Table 'stock'
+    Using index 'ITEMCODE'
+    Having Indexes:
+    ITEMCODE 224 entries, 4 pages, 224 values
+      which has 1 column, fixed, unique
+- End inputs to Query -
+
+01) Scan table 'stock'
+    Using index 'ITEMCODE'
+02) Update
+
+
+--- temp query ---
+
+- Inputs to Query -
+Table 'stock'
+    Using index 'ITEMCODE'
+    Having Indexes:
+    ITEMCODE 224 entries, 4 pages, 224 values
+      which has 1 column, fixed, unique
+- End inputs to Query -
+
+01) Scan table 'stock'
+    Using index 'ITEMCODE'
+02) Update
+
+
+--- temp query ---
+
+- Inputs to Query -
+Table 'stock'
+- End inputs to Query -
+
+      store result in temporary table
+
+
+
+--- temp query ---
+
+- Inputs to Query -
+Table 'stock'
+- End inputs to Query -
+
+      store result in temporary table
+
+
+
+--- temp query ---
+
+- Inputs to Query -
+Table 'stock'
+- End inputs to Query -
+
+      store result in temporary table

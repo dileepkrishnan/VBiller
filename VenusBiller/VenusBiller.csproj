@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3B942E7-C7B0-47B6-A7E0-853C8E373B08}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VenusBiller</RootNamespace>
+    <AssemblyName>VenusBiller</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>venus.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Humanizer">
+      <HintPath>..\packages\Humanizer.Core.2.0.1\lib\portable-win+net45+wp8+wpa81\Humanizer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Syncfusion.Grid.Base, Version=15.3450.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Grid.Windows, Version=15.3450.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Base, Version=15.3450.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Shared.Windows, Version=15.3450.0.26, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ItemWiseReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemWiseReport.Designer.cs">
+      <DependentUpon>ItemWiseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillWiseReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillWiseReport.Designer.cs">
+      <DependentUpon>BillWiseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BillItem.cs" />
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\NullParty.cs" />
+    <Compile Include="ImagePushButton.cs" />
+    <Compile Include="ItemSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemSelectionDialog.Designer.cs">
+      <DependentUpon>ItemSelectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyBill.Designer.cs">
+      <DependentUpon>ModifyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlySummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthlySummary.Designer.cs">
+      <DependentUpon>MonthlySummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Entities\Bill.cs" />
+    <Compile Include="Reports\BillWiseReportCriteria.cs" />
+    <Compile Include="Reports\Entities\BillWiseRecord.cs" />
+    <Compile Include="Reports\Entities\ItemDetailRecord.cs" />
+    <Compile Include="Reports\Entities\ItemWiseRecord.cs" />
+    <Compile Include="Reports\Entities\PrintableBill.cs" />
+    <Compile Include="Reports\ItemWiseReportCriteria.cs" />
+    <Compile Include="Reports\SalesRegisterReportCriteria.cs" />
+    <Compile Include="Reports\SalesType.cs" />
+    <Compile Include="Reports\SalesTypeExtension.cs" />
+    <Compile Include="Reports\SortType.cs" />
+    <Compile Include="SalesRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesRegister.Designer.cs">
+      <DependentUpon>SalesRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\BillingUtilities.cs" />
+    <Compile Include="Services\BillService.cs" />
+    <Compile Include="Services\Dao\ItemDao.cs" />
+    <Compile Include="Services\Dao\PartyDao.cs" />
+    <Compile Include="Services\Dao\BillDao.cs" />
+    <Compile Include="Services\DatabaseManager.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="Entities\Party.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartySelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartySelectionDialog.Designer.cs">
+      <DependentUpon>PartySelectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ItemService.cs" />
+    <Compile Include="Services\PartyServices.cs" />
+    <Compile Include="Services\ReportService.cs" />
+    <EmbeddedResource Include="ItemWiseReport.resx">
+      <DependentUpon>ItemWiseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillWiseReport.resx">
+      <DependentUpon>BillWiseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemSelectionDialog.resx">
+      <DependentUpon>ItemSelectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyBill.resx">
+      <DependentUpon>ModifyBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlySummary.resx">
+      <DependentUpon>MonthlySummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartySelectionDialog.resx">
+      <DependentUpon>PartySelectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SalesRegister.resx">
+      <DependentUpon>SalesRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\VenusBiller.Reports.Entities.PrintableBill.datasource" />
+    <None Include="Properties\DataSources\VenusBiller.Reports.Entities.PrintableBillItem.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_item.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="venus.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
