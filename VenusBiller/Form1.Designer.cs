@@ -382,11 +382,13 @@ namespace VenusBiller
             // 
             this.txtSpecialDiscountAmount.Location = new System.Drawing.Point(76, 88);
             this.txtSpecialDiscountAmount.Name = "txtSpecialDiscountAmount";
-            this.txtSpecialDiscountAmount.ReadOnly = true;
             this.txtSpecialDiscountAmount.Size = new System.Drawing.Size(121, 20);
             this.txtSpecialDiscountAmount.TabIndex = 8;
             this.txtSpecialDiscountAmount.TabStop = false;
             this.txtSpecialDiscountAmount.Text = "0.0";
+            this.txtSpecialDiscountAmount.Click += new System.EventHandler(this.txtSpecialDiscountAmount_Click);
+            this.txtSpecialDiscountAmount.TextChanged += new System.EventHandler(this.txtSpecialDiscountAmount_TextChanged);
+            this.txtSpecialDiscountAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSpecialDiscountAmount_KeyPress);
             // 
             // txtSubTotal
             // 
@@ -429,12 +431,11 @@ namespace VenusBiller
             // 
             this.txtSpecialDiscountPercentage.Location = new System.Drawing.Point(76, 63);
             this.txtSpecialDiscountPercentage.Name = "txtSpecialDiscountPercentage";
+            this.txtSpecialDiscountPercentage.ReadOnly = true;
             this.txtSpecialDiscountPercentage.ShortcutsEnabled = false;
             this.txtSpecialDiscountPercentage.Size = new System.Drawing.Size(121, 20);
             this.txtSpecialDiscountPercentage.TabIndex = 4;
             this.txtSpecialDiscountPercentage.Text = "0.0";
-            this.txtSpecialDiscountPercentage.TextChanged += new System.EventHandler(this.txtSpecialDiscountPercentage_TextChanged);
-            this.txtSpecialDiscountPercentage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSpecialDiscountPercentage_KeyPress);
             // 
             // txtDiscount
             // 

@@ -115,10 +115,10 @@ namespace VenusBiller.Services
                 <OutputFormat>EMF</OutputFormat>
                 <PageWidth>11.7in</PageWidth>
                 <PageHeight>8.3in</PageHeight>
-                <MarginTop>0.25in</MarginTop>
+                <MarginTop>0in</MarginTop>
                 <MarginLeft>0in</MarginLeft>
                 <MarginRight>0in</MarginRight>
-                <MarginBottom>0.25in</MarginBottom>
+                <MarginBottom>0in</MarginBottom>
             </DeviceInfo>";
             Warning[] warnings;
             m_streams = new List<Stream>();

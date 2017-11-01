@@ -4,6 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Syncfusion.Windows.Forms.Grid;
@@ -263,7 +264,9 @@ namespace VenusBiller
                 gstAmount += gst*item.Quantity;
                 cessAmount += cess*item.Quantity;
                 item.SpecialDiscountAmount = item.Quantity*priceAfterDiscount*specialDiscountPercentage/100;
-                item.NetAmount = priceAfterSpecialDiscount + gst*item.Quantity + cess*item.Quantity;
+                item.NetAmount =
+                    (priceAfterSpecialDiscount * item.Quantity + gst * item.Quantity + cess * item.Quantity);
+
             }
             double grandTotal = subTotal + gstAmount + cessAmount;
             double roundoff = Math.Round(grandTotal, 0) - grandTotal;
@@ -449,6 +452,54 @@ namespace VenusBiller
                 return specialDiscountPercentage;
             }
             return 0.0;
+        }
+
+        private void txtSpecialDiscountAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        private double GetSpecialDiscountAmount()
+        {
+            if (double.TryParse(txtSpecialDiscountAmount.Text, out var discountAmount))
+            {
+                return discountAmount;
+            }
+            return 0.0;
+        }
+
+        private void txtSpecialDiscountAmount_TextChanged(object sender, EventArgs e)
+        {
+            var specialDiscountAmount = GetSpecialDiscountAmount();
+            if (_selectedItems.Count > 0)
+            {
+                var finalPriceAfterDiscount = 0.0;
+                foreach (BillItem item in _selectedItems)
+                {
+                    double priceAfterDiscount = (item.Rate - item.Rate * item.DiscountPercent / 100) * item.Quantity;
+                    finalPriceAfterDiscount += priceAfterDiscount;
+                }
+                if (finalPriceAfterDiscount > 0)
+                {
+                    txtSpecialDiscountPercentage.Text =
+                        Math.Round((specialDiscountAmount/finalPriceAfterDiscount) * 100, 2).ToString(CultureInfo.InvariantCulture);
+                }
+                UpdateAmountsOnScreen();
+            }
+        }
+
+        private void txtSpecialDiscountAmount_Click(object sender, EventArgs e)
+        {
+            txtSpecialDiscountAmount.SelectAll();
         }
     }
 }
